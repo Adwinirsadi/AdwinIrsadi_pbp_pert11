@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediksi Risiko Kesehatan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <h1>Prediksi Risiko Kesehatan</h1>
+      <p class="subtitle">
+        Aplikasi ini memprediksi risiko kesehatan berdasarkan data kesehatan dasar Anda.
+      </p>
+
+      <!-- Dataset Selection -->
+      <div class="dataset-selector">
+        <label>Pilih Dataset Prediksi:</label>
+        <div class="selector-buttons">
+          <button class="dataset-btn active" data-dataset="diabetes">Diabetes</button>
+          <button class="dataset-btn" data-dataset="stroke">Stroke</button>
+        </div>
+      </div>
+
+      <!-- Diabetes Form -->
+      <form id="diabetesForm" class="prediction-form active">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Pregnancies</label>
+            <input type="number" id="Pregnancies" required>
+          </div>
+
+          <div class="form-group">
+            <label>Glucose</label>
+            <input type="number" id="Glucose" required>
+          </div>
+
+          <div class="form-group">
+            <label>Blood Pressure</label>
+            <input type="number" id="BloodPressure" required>
+          </div>
+
+          <div class="form-group">
+            <label>Skin Thickness</label>
+            <input type="number" id="SkinThickness" required>
+          </div>
+
+          <div class="form-group">
+            <label>Insulin</label>
+            <input type="number" id="Insulin" required>
+          </div>
+
+          <div class="form-group">
+            <label>BMI</label>
+            <input type="number" step="0.1" id="BMI" required>
+          </div>
+
+          <div class="form-group">
+            <label>Diabetes Pedigree Function</label>
+            <input type="number" step="0.01" id="DiabetesPedigreeFunction" required>
+          </div>
+
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" id="Age" required>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Prediksi Sekarang</button>
+      </form>
+
+      <!-- Stroke Form -->
+      <form id="strokeForm" class="prediction-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Jenis Kelamin</label>
+            <select id="gender" required>
+              <option value="">-- Pilih --</option>
+              <option value="Male">Laki-laki (Male)</option>
+              <option value="Female">Perempuan (Female)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Age (Usia)</label>
+            <input type="number" id="age" step="0.1" required>
+          </div>
+
+          <div class="form-group">
+            <label>Hypertension (Tekanan Darah Tinggi)</label>
+            <select id="hypertension" required>
+              <option value="">-- Pilih --</option>
+              <option value="0">Tidak</option>
+              <option value="1">Ya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Heart Disease (Penyakit Jantung)</label>
+            <select id="heart_disease" required>
+              <option value="">-- Pilih --</option>
+              <option value="0">Tidak</option>
+              <option value="1">Ya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Ever Married (Pernah Menikah)</label>
+            <select id="ever_married" required>
+              <option value="">-- Pilih --</option>
+              <option value="Yes">Ya</option>
+              <option value="No">Tidak</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Work Type (Jenis Pekerjaan)</label>
+            <select id="work_type" required>
+              <option value="">-- Pilih --</option>
+              <option value="Private">Swasta (Private)</option>
+              <option value="Self-employed">Wiraswasta (Self-employed)</option>
+              <option value="Govt_job">Pegawai Negeri (Govt)</option>
+              <option value="children">Anak-anak (Children)</option>
+              <option value="Never_worked">Belum Pernah Bekerja (Never worked)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Residence Type (Tipe Tempat Tinggal)</label>
+            <select id="Residence_type" required>
+              <option value="">-- Pilih --</option>
+              <option value="Urban">Perkotaan (Urban)</option>
+              <option value="Rural">Perdesaan (Rural)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Avg Glucose Level (Rata-rata Glukosa)</label>
+            <input type="number" id="avg_glucose_level" step="0.1" required>
+          </div>
+
+          <div class="form-group">
+            <label>BMI (Indeks Massa Tubuh)</label>
+            <input type="number" id="bmi" step="0.1" required>
+          </div>
+
+          <div class="form-group">
+            <label>Smoking Status (Status Merokok)</label>
+            <select id="smoking_status" required>
+              <option value="">-- Pilih --</option>
+              <option value="never smoked">Belum Pernah Merokok (Never smoked)</option>
+              <option value="formerly smoked">Dulu Pernah Merokok (Formerly smoked)</option>
+              <option value="smokes">Masih Merokok (Smokes)</option>
+              <option value="Unknown">Tidak Tahu (Unknown)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Prediksi Sekarang</button>
+      </form>
+
+      <!-- Result Box -->
+      <div id="resultBox" class="result hidden">
+        <h2>Hasil Prediksi</h2>
+        <p id="resultText"></p>
+        <p id="probabilityText"></p>
+        <p id="riskLevelText"></p>
+      </div>
+
+      <p class="note">
+        Catatan: Aplikasi ini hanya digunakan untuk pembelajaran dan tidak menggantikan diagnosis medis profesional.
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

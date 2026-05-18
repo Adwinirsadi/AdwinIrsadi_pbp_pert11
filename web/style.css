@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f7fb;
+  color: #222;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  color: #1f4e79;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 28px;
+  color: #555;
+}
+
+/* Dataset Selector */
+.dataset-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 28px;
+  padding: 20px;
+  background: #f0f4f8;
+  border-radius: 12px;
+}
+
+.dataset-selector label {
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.selector-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dataset-btn {
+  padding: 10px 20px;
+  border: 2px solid #1f4e79;
+  background: white;
+  color: #1f4e79;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.dataset-btn:hover {
+  background: #e8f0f8;
+}
+
+.dataset-btn.active {
+  background: #1f4e79;
+  color: white;
+}
+
+/* Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+}
+
+input, select {
+  padding: 12px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  color: #333;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #1f4e79;
+  box-shadow: 0 0 0 3px rgba(31, 78, 121, 0.1);
+}
+
+select {
+  cursor: pointer;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1f4e79;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #163b5c;
+  box-shadow: 0 4px 12px rgba(31, 78, 121, 0.2);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Result Box */
+.result {
+  margin-top: 28px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #eef6ff;
+  border-left: 6px solid #1f4e79;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result h2 {
+  margin-top: 0;
+  color: #1f4e79;
+}
+
+.result p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+.note {
+  margin-top: 24px;
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+}
+
+/* Prediction Form */
+.prediction-form {
+  display: none;
+}
+
+.prediction-form.active {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .selector-buttons {
+    width: 100%;
+  }
+
+  .dataset-btn {
+    flex: 1;
+    min-width: 100px;
+  }
+}
